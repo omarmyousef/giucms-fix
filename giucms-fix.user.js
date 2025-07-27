@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         GIU CMS Fix
 // @namespace    https://omarmyousef.vercel.app/
-// @version      1.0
+// @version      1.1
 // @description  Enhanced downloader for GIU course materials with PDF preview and batch download
 // @author       Omar M. Youssef
 // @match        *://cms.giu-uni.de/apps/student/CourseViewStn.aspx?id=*&sid=*
 // @grant        none
-// @license https://github.com/omarmyousef/giucms-fix/raw/main/license.md
-// @copyright Omar - https://omarmyousef.vercel.app
+// @license      https://github.com/omarmyousef/giucms-fix/raw/main/license.md
+// @copyright    Omar - https://omarmyousef.vercel.app
 // @icon         https://www.giu-uni.de/favicon.ico
 // @run-at       document-end
 // ==/UserScript==
@@ -51,12 +51,27 @@
         const link = card.querySelector('a#download');
         if (!link) return;
 
+        const wrapper = document.createElement('div');
+        wrapper.style.cssText = 'margin: 10px 0; width: 100%;';
+
         const buttonContainer = document.createElement('div');
-        buttonContainer.style.cssText = 'display: flex; gap: 8px; margin: 10px 0; align-items: center; justify-content:center; width: 100%;';
+        buttonContainer.style.cssText = 'display: flex; gap: 8px; align-items: center; justify-content: center; width: 100%;';
 
         const fileName = card.querySelector('strong')?.textContent || 'file';
         const courseName = document.querySelector(".menu-header-title span").innerText;
         const downloadName = `${courseName} - ${fileName}`;
+        
+        // Get file extension
+        const fileExt = link.href.split('.').pop().toUpperCase();
+        const fileTypeDisplay = document.createElement('div');
+        fileTypeDisplay.textContent = `${fileExt} file`;
+        fileTypeDisplay.style.cssText = `
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+            margin-top: 4px;
+            font-family: monospace;
+        `;
 
         // Download button
         const downloadBtn = document.createElement('button');
@@ -157,7 +172,10 @@
         
         buttonContainer.appendChild(viewBtn);
         buttonContainer.appendChild(downloadBtn);
-        link.replaceWith(buttonContainer);
+        
+        wrapper.appendChild(buttonContainer);
+        wrapper.appendChild(fileTypeDisplay);
+        link.replaceWith(wrapper);
     });
 
     // Create download controls
