@@ -4,7 +4,7 @@
 // @version      1.0
 // @description  Enhanced downloader for GIU course materials with PDF preview and batch download
 // @author       Omar M. Youssef
-// @match        https://cms.giu-uni.de/*
+// @match        *://cms.giu-uni.de/apps/student/CourseViewStn.aspx?id=*&sid=*
 // @grant        none
 // @license https://github.com/omarmyousef/giucms-fix/raw/main/license.md
 // @copyright Omar - https://omarmyousef.vercel.app
