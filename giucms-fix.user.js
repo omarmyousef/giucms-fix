@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         GIU CMS Fix
 // @namespace    https://omarmyousef.vercel.app/
-// @version      1.1
+// @version      1.2
 // @description  Enhanced downloader for GIU course materials with PDF preview and batch download
 // @author       Omar M. Youssef
-// @match        *://cms.giu-uni.de/apps/student/CourseViewStn.aspx?id=*&sid=*
+// @match        *://cms.giu-uni.de/apps/student/*
 // @grant        none
 // @license      https://github.com/omarmyousef/giucms-fix/raw/main/license.md
 // @copyright    Omar - https://omarmyousef.vercel.app
@@ -60,11 +60,11 @@
         const fileName = card.querySelector('strong')?.textContent || 'file';
         const courseName = document.querySelector(".menu-header-title span").innerText;
         const downloadName = `${courseName} - ${fileName}`;
-        
+
         // Get file extension
-        const fileExt = link.href.split('.').pop().toUpperCase();
+        const fileExt = link.href.split('.').pop().toLowerCase();
         const fileTypeDisplay = document.createElement('div');
-        fileTypeDisplay.textContent = `${fileExt} file`;
+        fileTypeDisplay.textContent = `.${fileExt}`;
         fileTypeDisplay.style.cssText = `
             text-align: center;
             font-size: 11px;
@@ -93,7 +93,7 @@
         // View button (only for PDFs)
         const viewBtn = document.createElement('button');
         viewBtn.textContent = `Preview`;
-        viewBtn.title = `Preview ${downloadName} PDF`;
+        viewBtn.title = `Preview ${downloadName}`;
         viewBtn.className = 'view-btn';
         viewBtn.style.cssText = `
             height: 36px;
@@ -105,16 +105,22 @@
             border-radius: 4px;
             font-size: 14px;
             transition: all 0.2s;
-            display: none;
+            display: ${fileExt === 'pdf' ? 'block' : 'none'};
         `;
 
-        // Check if file is PDF
-        if (link.href.toLowerCase().endsWith('.pdf')) {
-            viewBtn.style.display = 'block';
-            
+        // Set up click handlers
+        downloadBtn.onclick = e => {
+            e.preventDefault();
+            const a = document.createElement('a');
+            a.href = link.href;
+            a.download = downloadName;
+            a.click();
+        };
+
+        if (fileExt === 'pdf') {
             viewBtn.onclick = e => {
                 e.preventDefault();
-                
+
                 // Create PDF viewer popup
                 const popup = document.createElement('div');
                 popup.style.cssText = `
@@ -130,7 +136,7 @@
                     align-items: center;
                     justify-content: center;
                 `;
-                
+
                 const iframe = document.createElement('iframe');
                 iframe.src = link.href;
                 iframe.style.cssText = `
@@ -140,7 +146,7 @@
                     border-radius: 8px;
                     box-shadow: 0 0 30px rgba(0,0,0,0.7);
                 `;
-                
+
                 const closeBtn = document.createElement('button');
                 closeBtn.textContent = '✕ Close';
                 closeBtn.style.cssText = `
@@ -153,42 +159,35 @@
                     cursor: pointer;
                     font-size: 14px;
                 `;
-                
+
                 closeBtn.onclick = () => popup.remove();
-                
+
                 popup.appendChild(iframe);
                 popup.appendChild(closeBtn);
                 document.body.appendChild(popup);
             };
         }
 
-        downloadBtn.onclick = e => {
-            e.preventDefault();
-            const a = document.createElement('a');
-            a.href = link.href;
-            a.download = downloadName;
-            a.click();
-        };
-        
         buttonContainer.appendChild(viewBtn);
         buttonContainer.appendChild(downloadBtn);
-        
+
         wrapper.appendChild(buttonContainer);
         wrapper.appendChild(fileTypeDisplay);
         link.replaceWith(wrapper);
     });
 
-    // Create download controls
-    const totalFiles = document.querySelectorAll('.card-body').length;
+    // Create download controls (only for files that exist)
+    const downloadButtons = document.querySelectorAll('.download-btn');
+    const totalFiles = downloadButtons.length;
     let downloaded = 0;
 
     const dlAllBtn = document.createElement('button');
-    dlAllBtn.textContent = `Download All (${downloaded}/${totalFiles})`;
+    dlAllBtn.textContent = totalFiles > 0 ? `Download All (${downloaded}/${totalFiles})` : 'No downloadable files';
     dlAllBtn.style.cssText = `
         width: 100%;
         padding: 10px;
-        cursor: pointer;
-        background: #34a853;
+        cursor: ${totalFiles > 0 ? 'pointer' : 'not-allowed'};
+        background: ${totalFiles > 0 ? '#34a853' : '#cccccc'};
         color: white;
         border: none;
         border-radius: 4px;
@@ -196,15 +195,16 @@
         margin-top: 10px;
     `;
 
-    dlAllBtn.onclick = () => {
-        const downloadButtons = document.querySelectorAll('.download-btn');
-        downloadButtons.forEach((btn, i) => {
-            setTimeout(() => {
-                btn.click();
-                dlAllBtn.textContent = `Download All (${++downloaded}/${totalFiles})`;
-            }, i * 1000);
-        });
-    };
+    if (totalFiles > 0) {
+        dlAllBtn.onclick = () => {
+            downloadButtons.forEach((btn, i) => {
+                setTimeout(() => {
+                    btn.click();
+                    dlAllBtn.textContent = `Download All (${++downloaded}/${totalFiles})`;
+                }, i * 1000);
+            });
+        };
+    }
 
     // Create files counter
     const counter = document.createElement('div');
