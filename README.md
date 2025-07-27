@@ -19,7 +19,7 @@ Give this Repo a **Star ⭐**
    - Install for <a href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/" target="_blank" rel="noopener noreferrer">Firefox</a> 
    - Install for <a href="https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">Chrome</a>
 3. <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" target="_blank" rel="noopener noreferrer">Click here to install the script</a>
-   - Or create a new script and paste the contents of <a href="https://github.com/omarmyousef/giucms-fix/raw/refs/heads/main/giucms-fix.user.js" target="_blank" rel="noopener noreferrer">giucms-fix.user.js</a>
+   - Or create a new script and paste the contents of `giucms-fix.user.js`
 4. Navigate to your course materials page on <a href="https://cms.giu-uni.de/" target="_blank" rel="noopener noreferrer">GIU CMS</a>
 
 ## How to Use
