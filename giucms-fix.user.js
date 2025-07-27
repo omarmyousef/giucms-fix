@@ -7,6 +7,8 @@
 // @match        *://cms.giu-uni.de/apps/student/*
 // @grant        none
 // @license      https://github.com/omarmyousef/giucms-fix/raw/main/license.md
+// @updateURL    https://github.com/omarmyousef/giucms-fix/raw/refs/heads/main/giucms-fix.user.js
+// @downloadURL  https://github.com/omarmyousef/giucms-fix/raw/refs/heads/main/giucms-fix.user.js
 // @copyright    Omar - https://omarmyousef.vercel.app
 // @icon         https://www.giu-uni.de/favicon.ico
 // @run-at       document-end
