@@ -14,9 +14,11 @@ A Tampermonkey userscript that enhances the GIU CMS platform with one-click down
 ## Installation
 
 1. Install the [Tampermonkey](https://www.tampermonkey.net/) extension for your browser
-2. Click [here to install the script](https://github.com/omarmyousef/giucms-fix/raw/main/giu-downloader.user.js)
-   - Or create a new script and paste the contents of `giu-downloader.js`
-3. Navigate to your course materials page on [GIU CMS](https://cms.giu-uni.de/)
+   - Install for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/) 
+   - Install for [Chrome](https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=item-share-cb)
+3. Click [here to install the script](https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js)
+   - Or create a new script and paste the contents of `giucms-fix.user.js`
+4. Navigate to your course materials page on [GIU CMS](https://cms.giu-uni.de/)
 
 ## How to Use
 
