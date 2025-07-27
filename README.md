@@ -4,6 +4,8 @@
 
 A Tampermonkey userscript that enhances the GIU CMS platform with one-click downloading and PDF preview capabilities for course materials.
 
+Give this Repo a **Star ⭐**
+
 ## Features
 
 - 🚀 **Downloaded file names fix** that downloads the file with it's original name
@@ -13,12 +15,12 @@ A Tampermonkey userscript that enhances the GIU CMS platform with one-click down
 
 ## Installation
 
-1. Install the [Tampermonkey](https://www.tampermonkey.net/) extension for your browser
-   - Install for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/) 
-   - Install for [Chrome](https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=item-share-cb)
-3. Click [here to install the script](https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js)
-   - Or create a new script and paste the contents of `giucms-fix.user.js`
-4. Navigate to your course materials page on [GIU CMS](https://cms.giu-uni.de/)
+1. Install the <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener noreferrer">Tampermonkey</a> extension for your browser
+   - Install for <a href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/" target="_blank" rel="noopener noreferrer">Firefox</a> 
+   - Install for <a href="https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">Chrome</a>
+3. <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" target="_blank" rel="noopener noreferrer">Click here to install the script</a>
+   - Or create a new script and paste the contents of <a href="https://github.com/omarmyousef/giucms-fix/raw/refs/heads/main/giucms-fix.user.js" target="_blank" rel="noopener noreferrer">giucms-fix.user.js</a>
+4. Navigate to your course materials page on <a href="https://cms.giu-uni.de/" target="_blank" rel="noopener noreferrer">GIU CMS</a>
 
 ## How to Use
 
@@ -34,6 +36,6 @@ This work is protected under a custom academic license:
 - ❌ **Prohibited**: Commercial use, removing credits, claiming authorship
 - 🔐 **Required**: Clear attribution to original author
 
-[View Full License and Disclaimer](https://github.com/omarmyousef/giucms-fix/raw/main/license.md)
+<a href="https://github.com/omarmyousef/giucms-fix/raw/main/license.md" target="_blank" rel="noopener noreferrer">View Full License and Disclaimer</a>
 
 > "You may build upon this work, but not profit from it or claim it as your own."
