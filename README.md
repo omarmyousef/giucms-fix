@@ -12,14 +12,14 @@ Give this Repo a **Star ⭐**
 - 👁 **PDF preview** with full-screen viewer
 - 📊 **File type detection** (PDF, DOCX, etc.)
 
-## Installation
+## Installation / Update
 
-1. Install the <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener noreferrer">Tampermonkey</a> extension for your browser
+1. Install the <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener noreferrer">Tampermonkey</a> extension for your browser (if you don't have it already)
    - Install for <a href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/" target="_blank" rel="noopener noreferrer">Firefox</a> 
    - Install for <a href="https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">Chrome</a>
 
 2. **Install the script**:
-   - <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" target="_blank" rel="noopener noreferrer">Click here to install</a>
+   - <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" target="_blank" rel="noopener noreferrer">Click here to install/update</a>
    - You should see a Tampermonkey installation screen like this:
    <img width="445" height="168" alt="image" src="https://github.com/user-attachments/assets/7c7e05f3-9ea4-4502-a1d5-198c48d4d602" />
    
