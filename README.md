@@ -1,6 +1,5 @@
 # GIU CMS Fix
-
-<img width="1075" height="547" alt="giucms-fix" src="https://github.com/user-attachments/assets/0e5cad26-3cf3-4d22-9a8c-075c15251ef3" />
+<img width="1115" height="527" alt="giucms-fix-v1 2" src="https://github.com/user-attachments/assets/7e3da39c-ecc9-4f51-8fd5-94d3fba56a33" />
 
 A Tampermonkey userscript that enhances the GIU CMS platform with one-click downloading and PDF preview capabilities for course materials.
 
