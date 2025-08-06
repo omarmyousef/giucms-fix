@@ -1,3 +1,5 @@
+
+
 // ==UserScript==
 // @name         GIU CMS Fix
 // @namespace    https://omarmyousef.vercel.app/
@@ -14,7 +16,35 @@
 // @run-at       document-end
 // ==/UserScript==
 
-(function() {
+// Week group title
+const weekHeaders = Array.from(document.querySelectorAll("div.col-lg-6 h2.text-big"));
+
+const sortedHeaders = weekHeaders
+    .map(h2 => {
+        const dateMatch = h2.textContent.match(/\d{4}-\d{1,2}-\d{1,2}/);
+        const dateString = dateMatch ? dateMatch[0] : null;
+
+        return {
+            element: h2,
+            date: dateString ? new Date(dateString) : null
+        };
+    })
+    .sort((a, b) => a.date - b.date)
+    .map((item, index) => ({
+        ...item,
+        index: index + 1
+    }));
+
+// Update
+sortedHeaders.forEach(({ element, date, index }) => {
+    const formattedDate = date ?
+        `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}` :
+        'Unknown Date';
+    element.setAttribute("weekindex", index);
+    element.innerHTML = `Week ${index} <span style="font-size: 12px;"> (Started ${formattedDate}) </span>`;
+});
+
+(function () {
     'use strict';
 
     // Create a container for all script controls
@@ -29,7 +59,7 @@
         border-radius: 10px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         z-index: 9999;
-        width: 300px;
+        width: 340px;
         font-family: 'Segoe UI', Roboto, sans-serif;
     `;
 
@@ -59,9 +89,10 @@
         const buttonContainer = document.createElement('div');
         buttonContainer.style.cssText = 'display: flex; gap: 8px; align-items: center; justify-content: center; width: 100%;';
 
-        const fileName = card.querySelector('strong')?.textContent || 'file';
+        const fileName = card.querySelector('strong')?.textContent?.split("-").slice(1)?.join("-")?.trim() || ""; card.querySelector('strong')?.textContent || 'file';
         const courseName = document.querySelector(".menu-header-title span").innerText;
-        const downloadName = `${courseName} - ${fileName}`;
+        const courseWeek = card.parentElement.parentElement.parentElement.parentElement.querySelector("h2[weekindex]").getAttribute("weekindex");
+        const downloadName = `${courseName} - ${fileName} ${courseWeek ? `(Week ${courseWeek})` : ""}`;
 
         // Get file extension
         const fileExt = link.href.split('.').pop().toLowerCase();
@@ -211,12 +242,34 @@
     // Create files counter
     const counter = document.createElement('div');
     counter.textContent = `${totalFiles} course materials available`;
-    counter.style.cssText = 'font-size: 12px; color: #666; margin: 5px 0;';
+    counter.style.cssText = 'font-size: 12px; color: #666;';
+
+    // Create version info
+    const versionInfo = document.createElement('div');
+    versionInfo.innerHTML = `v1.1 • <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" style="color:#999;text-decoration:underline;">Check for updates</a>`;
+    versionInfo.style.cssText = 'font-size: 12px; color: #999;';
 
     // Create attribution
     const attribution = document.createElement('div');
-    attribution.style.cssText = 'font-size: 12px; color: #999; text-align: right; margin-top: 10px;';
     attribution.innerHTML = 'Made by <a target="_blank" href="https://omarmyousef.vercel.app" style="color:#999;font-weight:bold;">Omar M. Youssef</a>';
+    attribution.style.cssText = 'font-size: 12px; color: #999;';
+
+    // Create footer container
+    const footerContainer = document.createElement('div');
+    footerContainer.style.cssText = `
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px 0;
+    border-top: 1px solid #eee;
+`;
+
+    // Append elements to footer
+    footerContainer.appendChild(versionInfo);
+    footerContainer.appendChild(counter);
+    footerContainer.appendChild(attribution);
 
     // Assemble container
     scriptContainer.appendChild(header);
@@ -227,7 +280,7 @@
         }
     });
     scriptContainer.appendChild(dlAllBtn);
-    scriptContainer.appendChild(attribution);
+    scriptContainer.appendChild(footerContainer);  // Add the footer instead of just attribution
     document.body.appendChild(scriptContainer);
 
     console.log('GIU CMS Fix loaded successfully');
