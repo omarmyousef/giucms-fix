@@ -50,3 +50,20 @@ This work is protected under a custom academic license:
 <a href="https://github.com/omarmyousef/giucms-fix/raw/main/license.md" target="_blank" rel="noopener noreferrer">View Full License and Disclaimer</a>
 
 > "You may build upon this work, but not profit from it or claim it as your own."
+
+# giucms-fix.user.js Changelog
+
+## [v1.2.0] - 2024-08-06
+
+### New Features
+- **Week Card Formatting**  
+  Updated week card titles from `"Week: YYYY-MM-DD"` to `"Week X - Started YYYY-MM-DD"` with proper chronological numbering
+- **Improved Download Naming**  
+  Enhanced download filenames to format:  
+  `"Course Name - Trimmed Material Name (Week X)"` for better organization
+- **Version Management**  
+  Added version display with "Check for updates" button in footer
+
+### Technical Improvements
+- Implemented automatic week indexing (Week 1 = oldest date)
+- Optimized filename trimming logic for special characters
