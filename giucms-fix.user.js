@@ -246,7 +246,7 @@ sortedHeaders.forEach(({ element, date, index }) => {
 
     // Create version info
     const versionInfo = document.createElement('div');
-    versionInfo.innerHTML = `v1.1 • <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" style="color:#999;text-decoration:underline;">Check for updates</a>`;
+    versionInfo.innerHTML = `v1.2 • <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" style="color:#999;text-decoration:underline;">Check for updates</a>`;
     versionInfo.style.cssText = 'font-size: 12px; color: #999;';
 
     // Create attribution
