@@ -16,7 +16,7 @@ Give this Repo a **Star ⭐**
 
 1. Install the *Tampermonkey* extension for your browser (if you don't have it already)
    - Get <a href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/" target="_blank" rel="noopener noreferrer">Tempermonkey for Firefox</a> (recommended)
-   - Install for <a href="https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">Tempermonkey for Chrome</a> (You have to follow <a href="https://github.com/omarmyousef/giucms-fix/blob/main/README.md#for-chromechromium-based-browsers">these steps</a> for this to work on chrome/edge)
+   - Get <a href="https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">Tempermonkey for Chrome</a> (You have to follow <a href="https://github.com/omarmyousef/giucms-fix/blob/main/README.md#for-chromechromium-based-browsers">these steps</a> for this to work on chrome/edge)
 
 2. **Install the script**:
    - <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" target="_blank" rel="noopener noreferrer">Click here to Install or Update</a>
