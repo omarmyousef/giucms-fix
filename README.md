@@ -27,6 +27,12 @@ Give this Repo a **Star ⭐**
      - Clicking the link again
      - Refreshing the page
      - Checking your browser's pop-up blocker
+ 
+## FOR Chrome/Chromium-based browsers:
+   GIU CMS Fix works flawlessly on firefox. However, on chrome, You have to allow user scripts for this script to work
+   Go to <a href="chrome://extensions/?id=dhdgffkkebhmkfjojejmpbldmpobfkfo">Chrome extension settings</a> and enable "Allow User Scripts" option from there as shown below:
+   <img width="673" height="76" alt="image" src="https://github.com/user-attachments/assets/73513fe9-361a-474a-a2ea-ed5145cfba45" />
+
 
 3. After installing the script, Navigate to your course materials page on <a href="https://cms.giu-uni.de/" target="_blank" rel="noopener noreferrer">GIU CMS</a>
 
