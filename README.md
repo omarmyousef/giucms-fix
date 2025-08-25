@@ -16,7 +16,7 @@ Give this Repo a **Star ⭐**
 
 1. Install the *Tampermonkey* extension for your browser (if you don't have it already)
    - Get <a href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/" target="_blank" rel="noopener noreferrer">Tempermonkey for Firefox</a> (recommended)
-   - Get <a href="https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">Tempermonkey for Chrome</a> (You have to follow <a href="https://github.com/omarmyousef/giucms-fix/blob/main/README.md#for-chromechromium-based-browsers">these steps</a> for this to work on chrome/edge)
+   - Get <a href="https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">Tempermonkey for Chrome</a> (You have to follow <a href="https://github.com/omarmyousef/giucms-fix/blob/main/README.md#for-chromechromium-based-browsers">these steps</a> for this to work on chrome)
 
 2. **Install the script**:
    - <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" target="_blank" rel="noopener noreferrer">Click here to Install or Update</a>
@@ -28,13 +28,14 @@ Give this Repo a **Star ⭐**
      - Refreshing the page
      - Checking your browser's pop-up blocker
  
-## FOR Chrome/Edge/Chromium-based browsers:
+## FOR Chrome/Chromium-based browsers:
    GIU CMS Fix works flawlessly on firefox. However, on chrome, You have to allow user scripts for this script to work
    Go to tempermonkey extension settings and enable "Allow User Scripts" option from there as shown below:
 
    <img width="440" height="372" alt="image" src="https://github.com/user-attachments/assets/f9840684-d141-4f3d-9b23-20785f0abe8e" />
 
    _refer to <a href="https://www.tampermonkey.net/faq.php#Q209">tempermonkey's FAQ</a> if you have further issues... or just use firefox for this script to work_
+   _idk about ms edge, i can't find a solution for it yet_ 🫠
 
 
 
