@@ -14,12 +14,12 @@ Give this Repo a **Star ⭐**
 
 ## Installation / Update
 
-1. Install the <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener noreferrer">Tampermonkey</a> extension for your browser (if you don't have it already)
-   - Install for <a href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/" target="_blank" rel="noopener noreferrer">Firefox</a> 
-   - Install for <a href="https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">Chrome</a>
+1. Install the *Tampermonkey* extension for your browser (if you don't have it already)
+   - Get <a href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/" target="_blank" rel="noopener noreferrer">Tempermonkey for Firefox</a> (recommended)
+   - Get <a href="https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">Tempermonkey for Chrome</a> (You have to follow <a href="https://github.com/omarmyousef/giucms-fix/blob/main/README.md#for-chromechromium-based-browsers">these steps</a> for this to work on chrome)
 
 2. **Install the script**:
-   - <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" target="_blank" rel="noopener noreferrer">Click here to install/update</a>
+   - <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" target="_blank" rel="noopener noreferrer">Click here to Install or Update</a>
    - You should see a Tampermonkey installation screen like this:
    <img width="445" height="168" alt="image" src="https://github.com/user-attachments/assets/7c7e05f3-9ea4-4502-a1d5-198c48d4d602" />
    
@@ -27,6 +27,17 @@ Give this Repo a **Star ⭐**
      - Clicking the link again
      - Refreshing the page
      - Checking your browser's pop-up blocker
+ 
+## FOR Chrome/Chromium-based browsers:
+   GIU CMS Fix works flawlessly on firefox. However, on chrome, You have to allow user scripts for this script to work
+   Go to tempermonkey extension settings and enable "Allow User Scripts" option from there as shown below:
+
+   <img width="440" height="372" alt="image" src="https://github.com/user-attachments/assets/f9840684-d141-4f3d-9b23-20785f0abe8e" />
+
+   _refer to <a href="https://www.tampermonkey.net/faq.php#Q209">tempermonkey's FAQ</a> if you have further issues... or just use firefox for this script to work_
+   _idk about ms edge, i can't find a solution for it yet_ 🫠
+
+
 
 3. After installing the script, Navigate to your course materials page on <a href="https://cms.giu-uni.de/" target="_blank" rel="noopener noreferrer">GIU CMS</a>
 
