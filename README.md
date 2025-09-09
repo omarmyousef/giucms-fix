@@ -52,7 +52,39 @@ This work is protected under a custom academic license:
 
 # giucms-fix.user.js Changelog
 
-## [v1.2.0] - 2024-08-06
+## [v2.0.0] Major update - 2025-08-30
+
+### New Features
+- **Advanced Filtering System**  
+  Added dual filtering capability by week and content type for precise material selection
+- **ZIP Archive Download**  
+  Implemented batch download of filtered materials as a ZIP file with intelligent naming
+- **Enhanced Material Preview**  
+  Redesigned material cards with improved metadata display and organization
+
+### UI/UX Improvements
+- **Complete Interface Overhaul**  
+  Replaced simple controls with a modern, card-based materials browser
+- **Course Name Normalization**  
+  Added intelligent course name formatting (e.g., "Course Name (CODE123)" instead of raw title)
+- **Responsive Material Grid**  
+  Implemented a responsive grid layout for better visual organization of materials
+- **Enhanced Filter Controls**  
+  Added dedicated dropdown filters for content type and week selection
+
+### Technical Improvements  
+- **Data Structure Optimization**  
+  Replaced DOM manipulation with structured data collection and rendering
+- **Dynamic Content Filtering**  
+  Implemented real-time filtering without page reloads
+- **External Library Integration**  
+  Added JSZip library for client-side ZIP file creation
+- **Error Handling**  
+  Added robust error handling for failed downloads in batch operations
+
+---
+
+## [v1.2.0] - 2025-08-06
 
 ### New Features
 - **Week Card Formatting**  
