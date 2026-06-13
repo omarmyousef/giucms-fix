@@ -1,15 +1,16 @@
 // ==UserScript==
-// @name         GIU CMS Fix
-// @namespace    https://omarmyousef.vercel.app/
-// @version      2.1
-// @description  Enhanced downloader for GIU course materials with PDF preview, batch download, filters by week/content type
+// @name         GIU/GUC CMS Fix
+// @namespace    https://omarmyousef.bennuvate.com/
+// @version      2.2
+// @description  Enhanced downloader for GIU/GUC course materials with PDF preview, batch download, filters by week/content type
 // @author       Omar M. Youssef
 // @match        *://cms.giu-uni.de/apps/student/*
+// @match        *://cms.guc.edu.eg/apps/student/*
 // @grant        none
 // @license      https://github.com/omarmyousef/giucms-fix/raw/main/license.md
 // @updateURL    https://github.com/omarmyousef/giucms-fix/raw/refs/heads/main/giucms-fix.user.js
 // @downloadURL  https://github.com/omarmyousef/giucms-fix/raw/refs/heads/main/giucms-fix.user.js
-// @copyright    Omar - https://omarmyousef.vercel.app
+// @copyright    Omar - https://omarmyousef.bennuvate.com
 // @icon         https://www.giu-uni.de/favicon.ico
 // @run-at       document-end
 // ==/UserScript==
@@ -306,7 +307,7 @@
         border-bottom: 1px solid #eee;
     `;
     const title = document.createElement("h3");
-    title.textContent = "GIU CMS Fix";
+    title.textContent = "GIU/GUC CMS Fix";
     title.style.cssText = "margin: 0; font-size: 16px; color: #333;";
     header.appendChild(title);
 
@@ -563,8 +564,8 @@
         text-align: center;
     `;
     footer.innerHTML = `
-        v2.1 • <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" style="color:#999;">Check for Updates</a> •
-        Made by <a target="_blank" href="https://omarmyousef.vercel.app" style="color:#999;font-weight:bold;">Omar</a>
+        v2.2 • <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" style="color:#999;">Check for Updates</a> •
+        Made by <a target="_blank" href="https://omarmyousef.bennuvate.com" style="color:#999;font-weight:bold;">Omar</a>
     `;
 
     // Course name display
@@ -592,5 +593,5 @@
         card.remove();
     });
 
-    console.log("GIU CMS Fix v2.loaded");
+    console.log("CMS Fix v2.2 loaded");
 })();
