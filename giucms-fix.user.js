@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GIU/GUC CMS Fix
 // @namespace    https://omarmyousef.bennuvate.com/
-// @version      2.2
+// @version      2.21
 // @description  Enhanced downloader for GIU/GUC course materials with PDF preview, batch download, filters by week/content type
 // @author       Omar M. Youssef
 // @match        *://cms.giu-uni.de/apps/student/*
@@ -132,6 +132,10 @@
     }
 
     function openPDFPreview(mat) {
+        // Save current scroll position
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
+
         // Disable body scrolling
         document.body.classList.add('no-scroll');
 
@@ -228,6 +232,10 @@
             document.body.classList.remove('no-scroll');
             document.removeEventListener('keydown', escHandler);
             popup.remove();
+            // Restore scroll position using requestAnimationFrame to ensure DOM update
+            requestAnimationFrame(() => {
+                window.scrollTo(scrollX, scrollY);
+            });
         }
 
         closeBtn.onmouseenter = () => {
@@ -564,7 +572,7 @@
         text-align: center;
     `;
     footer.innerHTML = `
-        v2.2 • <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" style="color:#999;">Check for Updates</a> •
+        v2.21 • <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" style="color:#999;">Check for Updates</a> •
         Made by <a target="_blank" href="https://omarmyousef.bennuvate.com" style="color:#999;font-weight:bold;">Omar</a>
     `;
 
@@ -593,5 +601,5 @@
         card.remove();
     });
 
-    console.log("CMS Fix v2.2 loaded");
+    console.log("CMS Fix v2.21 loaded");
 })();
