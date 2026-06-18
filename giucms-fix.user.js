@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GIU/GUC CMS Fix
 // @namespace    https://omarmyousef.bennuvate.com/
-// @version      2.22
+// @version      2.23
 // @description  Enhanced downloader for GIU/GUC course materials with PDF preview, batch download, filters by week/content type
 // @author       Omar M. Youssef
 // @match        *://cms.giu-uni.de/apps/student/*
@@ -383,6 +383,10 @@ function renderList() {
 
             const sectionWrapper = document.createElement("div");
             sectionWrapper.style.cssText = `
+                font-size: 20px;
+                font-weight: 700;
+                margin: 20px 0 10px;
+                color: #222;
             `;
 
             const contentGroup = document.createElement("div");
@@ -398,18 +402,18 @@ function renderList() {
             weekTitle.style.cssText = `
                 font-size: 20px;
                 font-weight: 700;
-                margin: 0 0 12px 0;
+                margin: 0 0 16px 0;
                 color: #222;
             `;
 
             const grid = document.createElement("div");
             grid.style.cssText = `
                 display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
                 gap: 16px;
                 width: 100%;
             `;
-            weekMats.sort((a, b) => a.title.localeCompare(b.title)).forEach(mat => {
+            weekMats.forEach(mat => {
                 const card = document.createElement("div");
                 card.style.cssText = `
                     border: 1px solid #e0e0e0;
@@ -590,7 +594,7 @@ function renderList() {
         text-align: center;
     `;
     footer.innerHTML = `
-        v2.22 • <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" style="color:#999;">Check for Updates</a> •
+        v2.23 • <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" style="color:#999;">Check for Updates</a> •
         Made by <a target="_blank" href="https://omarmyousef.bennuvate.com" style="color:#999;font-weight:bold;">Omar</a>
     `;
 
@@ -619,5 +623,5 @@ function renderList() {
         card.remove();
     });
 
-    console.log("CMS Fix v2.22 loaded");
+    console.log("CMS Fix v2.23 loaded");
 })();
