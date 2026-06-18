@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GIU/GUC CMS Fix
 // @namespace    https://omarmyousef.bennuvate.com/
-// @version      2.21
+// @version      2.22
 // @description  Enhanced downloader for GIU/GUC course materials with PDF preview, batch download, filters by week/content type
 // @author       Omar M. Youssef
 // @match        *://cms.giu-uni.de/apps/student/*
