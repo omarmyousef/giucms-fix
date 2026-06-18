@@ -365,104 +365,122 @@
     `;
 
     // Render function with filters
-    function renderList() {
-        listContainer.innerHTML = "";
-        const selectedType = typeFilter.value;
-        const selectedWeek = weekFilter.value;
+function renderList() {
+    listContainer.innerHTML = "";
+    const selectedType = typeFilter.value;
+    const selectedWeek = weekFilter.value;
 
-        Object.keys(grouped)
-            .sort((a, b) => a - b).reverse()
-            .forEach((week) => {
-                if (selectedWeek !== "All Weeks" && selectedWeek !== week) return;
+    Object.keys(grouped)
+        .sort((a, b) => a - b).reverse()
+        .forEach((week) => {
+            if (selectedWeek !== "All Weeks" && selectedWeek !== week) return;
 
-                const weekMats = grouped[week].filter(mat => {
-                    return selectedType === "All Types" || mat.contentType === selectedType;
-                });
-
-                if (weekMats.length === 0) return;
-
-                const weekTitle = document.createElement("h2");
-                weekTitle.textContent = `📚 Week ${week}`;
-                weekTitle.style.cssText = `
-                    font-size: 20px;
-                    font-weight: 700;
-                    margin: 20px 0 10px;
-                    color: #222;
-                `;
-                listContainer.appendChild(weekTitle);
-
-                const grid = document.createElement("div");
-                grid.style.cssText = `
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                    gap: 16px;
-                    margin-bottom: 25px;
-                `;
-
-                weekMats.forEach(mat => {
-                    const card = document.createElement("div");
-                    card.style.cssText = `
-                        border: 1px solid #e0e0e0;
-                        border-radius: 10px;
-                        padding: 16px;
-                        background: #fff;
-                        display: flex;
-                        flex-direction: column;
-                        gap: 8px;
-                        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-                    `;
-                    const nameEl = document.createElement("div");
-                    nameEl.textContent = mat.title;
-                    nameEl.style.cssText = "font-size: 16px; font-weight: 600; color: #333;";
-
-                    const subtitleEl = document.createElement("div");
-                    subtitleEl.textContent = mat.subtitle;
-                    subtitleEl.style.cssText = "font-size: 12px; font-weight: 600; color: #555;";
-
-                    const typeEl = document.createElement("div");
-                    typeEl.textContent = `${mat.contentType} - ${mat.type}`;
-                    typeEl.style.cssText = "font-size: 13px; color: #666; font-family: monospace;";
-
-                    const btns = document.createElement("div");
-                    btns.style.cssText = "display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;";
-                    const openBtn = document.createElement("a");
-                    openBtn.textContent = "Open";
-                    openBtn.href = mat.url;
-                    openBtn.style.cssText = buttonStyle("#e4a016");
-                    openBtn.target = "_blank";
-                    btns.appendChild(openBtn);
-                    const downloadBtn = document.createElement("button");
-                    downloadBtn.textContent = "Download";
-                    downloadBtn.style.cssText = buttonStyle("#bd2639");
-                    downloadBtn.onclick = () => {
-                        const a = document.createElement("a");
-                        a.href = mat.url;
-                        a.download = mat.downloadName;
-                        a.click();
-                    };
-                    btns.appendChild(downloadBtn);
-
-                    if (mat.type === "pdf") {
-                        const viewBtn = document.createElement("button");
-                        viewBtn.textContent = "Preview";
-                        viewBtn.style.cssText = buttonStyle("#4285f4");
-                        viewBtn.onclick = e => {
-                            e.preventDefault();
-                            openPDFPreview(mat);
-                        };
-                        btns.appendChild(viewBtn);
-                    }
-
-                    card.appendChild(nameEl);
-                    card.appendChild(subtitleEl);
-                    card.appendChild(btns);
-                    card.appendChild(typeEl);
-                    grid.appendChild(card);
-                });
-
-                listContainer.appendChild(grid);
+            const weekMats = grouped[week].filter(mat => {
+                return selectedType === "All Types" || mat.contentType === selectedType;
             });
-    }
+
+            if (weekMats.length === 0) return;
+
+            const sectionWrapper = document.createElement("div");
+            sectionWrapper.style.cssText = `
+            `;
+
+            const contentGroup = document.createElement("div");
+            contentGroup.style.cssText = `
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start; /* Keeps the title aligned with the left edge of the grid cards */
+                max-width: 100%;
+            `;
+
+            const weekTitle = document.createElement("h2");
+            weekTitle.textContent = `📚 Week ${week}`;
+            weekTitle.style.cssText = `
+                font-size: 20px;
+                font-weight: 700;
+                margin: 0 0 12px 0;
+                color: #222;
+            `;
+
+            const grid = document.createElement("div");
+            grid.style.cssText = `
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 16px;
+                width: 100%;
+            `;
+            weekMats.sort((a, b) => a.title.localeCompare(b.title)).forEach(mat => {
+                const card = document.createElement("div");
+                card.style.cssText = `
+                    border: 1px solid #e0e0e0;
+                    border-radius: 10px;
+                    padding: 16px;
+                    background: #fff;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    gap: 8px;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+                `;
+                const nameEl = document.createElement("div");
+                nameEl.textContent = mat.title;
+                nameEl.style.cssText = "font-size: 16px; font-weight: 600; color: #333;";
+
+                const subtitleEl = document.createElement("div");
+                subtitleEl.textContent = mat.subtitle;
+                subtitleEl.style.cssText = "font-size: 12px; font-weight: 600; color: #555;";
+
+                const typeEl = document.createElement("div");
+                typeEl.textContent = `${mat.contentType} - ${mat.type}`;
+                typeEl.style.cssText = "font-size: 13px; color: #666; font-family: monospace;";
+
+                const btns = document.createElement("div");
+                btns.style.cssText = "display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;";
+                
+                const openBtn = document.createElement("a");
+                openBtn.textContent = "Open";
+                openBtn.href = mat.url;
+                openBtn.style.cssText = buttonStyle("#e4a016");
+                openBtn.target = "_blank";
+                btns.appendChild(openBtn);
+                
+                const downloadBtn = document.createElement("button");
+                downloadBtn.textContent = "Download";
+                downloadBtn.style.cssText = buttonStyle("#bd2639");
+                downloadBtn.onclick = () => {
+                    const a = document.createElement("a");
+                    a.href = mat.url;
+                    a.download = mat.downloadName;
+                    a.click();
+                };
+                btns.appendChild(downloadBtn);
+
+                if (mat.type === "pdf") {
+                    const viewBtn = document.createElement("button");
+                    viewBtn.textContent = "Preview";
+                    viewBtn.style.cssText = buttonStyle("#4285f4");
+                    viewBtn.onclick = e => {
+                        e.preventDefault();
+                        openPDFPreview(mat);
+                    };
+                    btns.appendChild(viewBtn);
+                }
+
+                card.appendChild(nameEl);
+                card.appendChild(subtitleEl);
+                card.appendChild(btns);
+                card.appendChild(typeEl);
+                grid.appendChild(card);
+            });
+
+            // Assemble everything in order
+            contentGroup.appendChild(weekTitle);
+            contentGroup.appendChild(grid);
+            sectionWrapper.appendChild(contentGroup);
+            
+            listContainer.appendChild(sectionWrapper);
+        });
+}
 
     typeFilter.onchange = renderList;
     weekFilter.onchange = renderList;
@@ -572,7 +590,7 @@
         text-align: center;
     `;
     footer.innerHTML = `
-        v2.21 • <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" style="color:#999;">Check for Updates</a> •
+        v2.22 • <a href="https://github.com/omarmyousef/giucms-fix/raw/main/giucms-fix.user.js" style="color:#999;">Check for Updates</a> •
         Made by <a target="_blank" href="https://omarmyousef.bennuvate.com" style="color:#999;font-weight:bold;">Omar</a>
     `;
 
@@ -601,5 +619,5 @@
         card.remove();
     });
 
-    console.log("CMS Fix v2.21 loaded");
+    console.log("CMS Fix v2.22 loaded");
 })();
