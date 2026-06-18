@@ -60,5 +60,3 @@ This work is protected under a custom academic license:
 <a href="https://github.com/omarmyousef/giucms-fix/raw/main/license.md" target="_blank" rel="noopener noreferrer">View Full License and Disclaimer</a>
 
 > "You may build upon this work, but not profit from it or claim it as your own."
-
-Might release it as an extention on chrome store idk
